@@ -36,6 +36,7 @@
                                 <div 
                                     class="fixed z-10 inset-0 overflow-y-auto"
                                     x-show="showLoginModal"
+                                    x-cloak
                                 >
                                     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
                                         <!--
@@ -59,7 +60,7 @@
                                             class="fixed inset-0 transition-opacity"
                                             aria-hidden="true"
                                         >
-                                            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                                            <div @click="showLoginModal = false" class="absolute inset-0 bg-gray-500 opacity-75"></div>
                                         </div>
 
                                         <!-- This element is to trick the browser into centering the modal contents. -->
@@ -96,9 +97,15 @@
                                                         </svg>
                                                     </div>
                                                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                                                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                                                        Deactivate account
-                                                        </h3>
+                                                        <div class="flex justify-between">
+                                                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                                                            Deactivate account
+                                                            </h3>
+
+                                                            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                            </svg>
+                                                        </div>
                                                         <div class="mt-2">
                                                         <p class="text-sm text-gray-500">
                                                             Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.

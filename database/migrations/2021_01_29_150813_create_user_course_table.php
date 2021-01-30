@@ -15,9 +15,9 @@ class CreateUserCourseTable extends Migration
     {
         Schema::create('user_course', function (Blueprint $table) {
             $table->id();
-            $table->integer('credit')->unsigned()->nullable()->default(0);
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('course_id')->constrained();
+            $table->integer('credit');
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('course_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

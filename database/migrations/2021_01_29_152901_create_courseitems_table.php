@@ -17,8 +17,9 @@ class CreateCourseitemsTable extends Migration
             $table->id();
             //Please remember to validate the dayofweek in application level before submitting or the thing falls apart
             $table->integer('dayofweek');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->foreignId('course_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
